@@ -7,11 +7,12 @@ import javax.persistence.Id;
 
 /**
  * CityZipCodeEntity is a domainobject constructed to hold a zipcode and a cityname
- * There is also an id object that is configured to be automatically generated so you 
+ * There is also an id that is configured to be automatically generated so you 
  * don’t have to deal with that.
  * 
  * @author Jack Petersen
- *
+ * 		   http://wwww.petersen.biz
+ * 		   https://github.com/Jack1972	
  */
 
 @Entity
@@ -19,7 +20,7 @@ public class CityZipCodeEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private short id; // all city zip codes of denmark is easyly stored in a short
+	private short id; 
 
 	private String cityZipCode;
 	private String city;

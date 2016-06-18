@@ -2,7 +2,7 @@ package biz.petersen.zipcode;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
 /**
@@ -11,11 +11,15 @@ import org.springframework.data.repository.query.Param;
  * CrudRepository interface defined in Spring Data Commons.
  * 
  * @author Jack Petersen
- *
+ * 		   http://wwww.petersen.biz
+ * 		   https://github.com/Jack1972	
+ * 
  */
 
-public interface CityZipCodeRepository extends CrudRepository<CityZipCodeEntity, Short> {
-	CityZipCodeEntity findByCity(@Param("city") String city);
+// public interface CityZipCodeRepository extends CrudRepository<CityZipCodeEntity, Short> {
+public interface CityZipCodeRepository extends JpaRepository<CityZipCodeEntity, Short>	{
+
+CityZipCodeEntity findByCity(@Param("city") String city);
 	CityZipCodeEntity findByCityZipCode(@Param("cityZipCode") String cityZipCode);
 	List<CityZipCodeEntity> findAll();
 }

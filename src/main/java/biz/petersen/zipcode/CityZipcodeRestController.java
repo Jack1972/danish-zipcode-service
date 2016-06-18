@@ -18,16 +18,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Få skrevet tutorial
- * Få lagt det på github
- * --------------------------------
- * kan komme efter ovenstående som add ons
- * Tilføj unit test
- * tilføj swagger
- * tilføj den til AWS
+ /**
+ * Forklar lidt om rest controlleren
  * 
- * @author jack
- *
+ * @author Jack Petersen
+ * 		   http://wwww.petersen.biz
+ * 		   https://github.com/Jack1972	
+ * 
  */
 
 @RestController
@@ -84,6 +81,12 @@ public class CityZipcodeRestController {
 	}
 }
 
+/**
+ * forklar lidt om CityResourceAssembler
+ * 
+ * @author jack
+ *
+ */
 @Component
 final class CityResourceAssembler implements ResourceAssembler<CityZipCodeEntity, Resource<CityZipCodeEntity>> {
 

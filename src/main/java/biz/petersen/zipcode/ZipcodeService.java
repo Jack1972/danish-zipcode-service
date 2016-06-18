@@ -13,10 +13,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * forklar lidt om springBootApplication
+ * Defines a springboot application
  * 
- * @author jack
- *
+ * forklar kort hvad der sker
+ * 
+ * @author Jack Petersen
+ * 		   http://wwww.petersen.biz
+ * 		   https://github.com/Jack1972	
  */
 @ComponentScan
 @SpringBootApplication
@@ -39,6 +42,7 @@ public class ZipcodeService {
 		return (args) -> {
 			log.info("Start populate danish zipcode data to h2 in memory database");
 
+			// read zipcodes and citys from file
 			InputStream in = getClass().getResourceAsStream("/postnummer.dat");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
@@ -47,6 +51,7 @@ public class ZipcodeService {
 				String[] result;
 				while (line != null) {
 					result = line.split(",");
+					// save zipcodes and citys in the h2 in memory database
 					repository.save(new CityZipCodeEntity(result[0], result[1]));
 					line = reader.readLine();
 				}
