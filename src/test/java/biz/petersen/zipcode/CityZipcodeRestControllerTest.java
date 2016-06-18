@@ -7,6 +7,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
+import static org.junit.Assert.fail;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.web.context.WebApplicationContext;
 
 /**
@@ -91,5 +94,35 @@ public class CityZipcodeRestControllerTest {
         mockMvc.perform(get("/citiesasxml"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_XML_VALUE));                           
+    }
+    
+    @Test
+    public void readSingleByZipcodeNotFound() throws Exception {
+    	MvcResult result = mockMvc.perform(get("/zipcode/{zipcode}", "4001"))
+                .andExpect(status().isNotFound())
+                .andReturn();
+                           
+    	if(result.getResolvedException() != null && 
+    	   result.getResolvedException() instanceof ZipCodeNotFoundException &&
+    	   result.getResolvedException().getMessage().equals("could not find zipcode: 4001")){
+    		 assertTrue(true);
+    	} else {
+    		fail("failed: expected a ZipCodeNotFoundException");
+    	}    		        
+    }
+    
+    @Test
+    public void readSingleByCityNotFound() throws Exception {
+    	MvcResult result = mockMvc.perform(get("/city/{cityname}", "Kolding"))
+                .andExpect(status().isNotFound())
+                .andReturn();
+                           
+    	if(result.getResolvedException() != null && 
+    	   result.getResolvedException() instanceof CityNotFoundException &&
+    	   result.getResolvedException().getMessage().equals("could not find city: Kolding")){
+    		 assertTrue(true);
+    	} else {
+    		fail("failed: expected a ZipCodeNotFoundException");
+    	}    		        
     }
 }

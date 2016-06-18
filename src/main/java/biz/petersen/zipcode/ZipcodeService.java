@@ -13,9 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * Defines a springboot application
- * 
- * forklar kort hvad der sker
+ * The ZipcodeService is a spring boot application.
  * 
  * @author Jack Petersen
  * 		   http://wwww.petersen.biz
@@ -32,7 +30,8 @@ public class ZipcodeService {
 	}
 
 	/**
-	 * Forklar lidt om CommandlineRunner
+	 * The CommandlineRunner is called as the first thing after the spring application starts
+	 * so here we initialize the in memory H2 database with the cities and zipcodes
 	 * 
 	 * @param repository
 	 * @return

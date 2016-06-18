@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  /**
- * Forklar lidt om rest controlleren
+ * CityZipcodeRestController is the exhibitor of the rest operations 
+ * others can call by invoking your url eg. localhost:8080/cities 
  * 
  * @author Jack Petersen
  * 		   http://wwww.petersen.biz
@@ -82,9 +83,9 @@ public class CityZipcodeRestController {
 }
 
 /**
- * forklar lidt om CityResourceAssembler
- * 
- * @author jack
+ * the CityResourceAssembler is used to build links to self
+ * and a link to get all the cities its usually to build support
+ * for HATEOAS. 
  *
  */
 @Component
