@@ -2,6 +2,14 @@ package biz.petersen.zipcode;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
+/**
+ * Exception thrown if there is no matching zipcode
+ * 
+ * @author Jack Petersen
+ * 		   http://wwww.petersen.biz
+ * 		   https://github.com/Jack1972	
+ * 
+ */
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 class ZipCodeNotFoundException extends RuntimeException {

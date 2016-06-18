@@ -13,10 +13,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * forklar lidt om springBootApplication
+ * The ZipcodeService is a spring boot application.
  * 
- * @author jack
- *
+ * @author Jack Petersen
+ * 		   http://wwww.petersen.biz
+ * 		   https://github.com/Jack1972	
  */
 @ComponentScan
 @SpringBootApplication
@@ -29,7 +30,8 @@ public class ZipcodeService {
 	}
 
 	/**
-	 * Forklar lidt om CommandlineRunner
+	 * The CommandlineRunner is called as the first thing after the spring application starts
+	 * so here we initialize the in memory H2 database with the cities and zipcodes
 	 * 
 	 * @param repository
 	 * @return
@@ -39,6 +41,7 @@ public class ZipcodeService {
 		return (args) -> {
 			log.info("Start populate danish zipcode data to h2 in memory database");
 
+			// read zipcodes and citys from file
 			InputStream in = getClass().getResourceAsStream("/postnummer.dat");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
@@ -47,6 +50,7 @@ public class ZipcodeService {
 				String[] result;
 				while (line != null) {
 					result = line.split(",");
+					// save zipcodes and citys in the h2 in memory database
 					repository.save(new CityZipCodeEntity(result[0], result[1]));
 					line = reader.readLine();
 				}

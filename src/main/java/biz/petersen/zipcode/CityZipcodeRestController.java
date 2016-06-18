@@ -18,16 +18,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Få skrevet tutorial
- * Få lagt det på github
- * --------------------------------
- * kan komme efter ovenstående som add ons
- * Tilføj unit test
- * tilføj swagger
- * tilføj den til AWS
+ /**
+ * CityZipcodeRestController is the exhibitor of the rest operations 
+ * others can call by invoking your url eg. localhost:8080/cities 
  * 
- * @author jack
- *
+ * @author Jack Petersen
+ * 		   http://wwww.petersen.biz
+ * 		   https://github.com/Jack1972	
+ * 
  */
 
 @RestController
@@ -84,6 +82,12 @@ public class CityZipcodeRestController {
 	}
 }
 
+/**
+ * the CityResourceAssembler is used to build links to self
+ * and a link to get all the cities its usually to build support
+ * for HATEOAS. 
+ *
+ */
 @Component
 final class CityResourceAssembler implements ResourceAssembler<CityZipCodeEntity, Resource<CityZipCodeEntity>> {
 
