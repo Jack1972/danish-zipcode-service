@@ -16,7 +16,6 @@ import org.springframework.data.repository.query.Param;
  * 
  */
 
-// public interface CityZipCodeRepository extends CrudRepository<CityZipCodeEntity, Short> {
 public interface CityZipCodeRepository extends JpaRepository<CityZipCodeEntity, Short>	{
 
 CityZipCodeEntity findByCity(@Param("city") String city);
