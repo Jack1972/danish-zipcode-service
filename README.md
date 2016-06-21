@@ -25,7 +25,6 @@ I have build this service primary to use it in my comming tutorial on
 Rest Service implementation.
 
 -Work there needs to be done
-- Swagger
 - Tutorial
 - client side example (javascript)
    
